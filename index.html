@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vowel Pronunciation | IPA Sound Map</title>
+  <title>Vowel Sound Map</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -513,10 +513,149 @@
       border-top: 1px solid var(--border);
     }
 
+
+
+    .reveal-toggle {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      margin: 18px 0 0 auto;
+      padding: 0;
+      border: 1px solid rgba(196,164,90,.34);
+      background: rgba(255,255,255,.04);
+      color: var(--gold-light);
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      transition: .18s ease;
+    }
+
+    .reveal-toggle:hover {
+      background: rgba(255,255,255,.09);
+      border-color: var(--gold-light);
+      transform: translateY(1px);
+    }
+
+    .reveal-icon {
+      display: inline-grid;
+      place-items: center;
+      color: var(--gold-light);
+      font-size: 22px;
+      line-height: 1;
+      transform: translateY(-2px);
+      transition: transform .18s ease;
+    }
+
+    .reveal-toggle[aria-expanded="true"] .reveal-icon {
+      transform: rotate(180deg) translateY(2px);
+    }
+
+    .reveal-content {
+      display: block;
+      margin-top: 22px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(196,164,90,.26);
+      color: rgba(255,255,255,.78);
+      position: relative;
+      z-index: 2;
+    }
+
+    .reveal-content[hidden] {
+      display: none;
+    }
+
+    .method-panel {
+      margin: 30px 0 30px;
+      background: var(--navy);
+      color: var(--white);
+      border: 1px solid rgba(196,164,90,.38);
+      padding: clamp(24px, 4vw, 38px);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .method-panel::before {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border: 1px solid rgba(196,164,90,.25);
+      pointer-events: none;
+    }
+
+    .method-panel::after {
+      content: "IMAGE → WORD → SOUND → TRANSFER";
+      position: absolute;
+      right: 22px;
+      bottom: 16px;
+      font-size: clamp(22px, 4vw, 46px);
+      font-weight: 900;
+      letter-spacing: -.04em;
+      color: rgba(255,255,255,.045);
+      white-space: nowrap;
+    }
+
+    .method-kicker {
+      color: var(--gold-light);
+      font-size: 12px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .method-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .method-step {
+      border: 1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.045);
+      padding: 18px;
+      min-height: 190px;
+    }
+
+    .method-step span {
+      display: inline-block;
+      color: var(--gold-light);
+      font-size: 12px;
+      letter-spacing: .18em;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .method-step h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      line-height: 1;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .method-step p {
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: rgba(255,255,255,.76);
+    }
+
+    .method-step strong {
+      color: var(--gold-light);
+      font-weight: 800;
+    }
+
     @media (max-width: 900px) {
       .hero-panel,
       .sound-grid,
-      .micro-grid {
+      .micro-grid,
+      .method-grid {
         grid-template-columns: 1fr;
       }
 
@@ -641,54 +780,81 @@
 <body>
   <header class="hero">
     <div class="shell">
-      <span class="brand-pill">MD Talk Pronunciation Lab</span>
+      <span class="brand-pill">MD Talk Laboratório de Pronúncia</span>
       <div class="hero-panel">
         <section class="hero-copy">
-          <p class="eyebrow">International Phonetic Alphabet</p>
+          <p class="eyebrow">Alfabeto Fonético Internacional</p>
           <h1>Vowel Sound Map</h1>
-          <p class="subtitle">A professional, visual pronunciation page with a sharp editorial layout that connects each IPA vowel sound to a memorable keyword symbol, a mouth-position cue, and a focused word bank for guided repetition.</p>
+          <p class="subtitle">O IPA (International Phonetic Alphabet) é um sistema internacional que representa sons, não letras. Ele mostra como uma palavra é pronunciada, mesmo quando a escrita em inglês parece irregular.<button class="reveal-toggle icon-only" type="button" aria-expanded="false" aria-controls="ipaReveal" aria-label="Expandir explicação"><span class="reveal-icon" aria-hidden="true">⌄</span></button><span class="reveal-content" id="ipaReveal" hidden>Neste método, cada som é associado a uma imagem-chave e a uma palavra conhecida.<br><br><strong>Exemplo:</strong><br><strong>CAT</strong> representa o som <strong>/æ/</strong>.<br>Ao ver a imagem do gato, você lembra da palavra <strong>CAT</strong>, reproduz o som <strong>/æ/</strong> e aplica esse mesmo som em outras palavras, como <strong>black</strong>, <strong>have</strong>, <strong>hat</strong> e <strong>catch</strong>.<br><br>A lógica é:<br><br><strong>imagem → palavra-chave → som → novas palavras</strong><br><br>Assim, você não decora apenas símbolos: cria uma associação visual e sonora para reconhecer e reproduzir o mesmo som em diferentes palavras.</span></p>
         </section>
-        <aside class="hero-stats" aria-label="Page overview">
-          <div class="stat-card"><strong>20</strong><span>keyword sounds</span></div>
-          <div class="stat-card"><strong>SVG + IPA</strong><span>sound association</span></div>
-          <div class="stat-card"><strong>Practice grid</strong><span>repeat · compare · refine</span></div>
+        <aside class="hero-stats" aria-label="Visão geral da página">
+          <div class="stat-card"><strong>20</strong><span>sons-chave</span></div>
+          <div class="stat-card"><strong>Imagem + Som</strong><span>associação automática</span></div>
+          <div class="stat-card"><strong>Grade de prática</strong><span>repetir · comparar · refinar</span></div>
         </aside>
       </div>
 
-      <nav class="toolbar" aria-label="Pronunciation filters">
-        <input class="search" id="searchInput" type="search" placeholder="Search a keyword or example word: bird, phone, teacher, hospital..." />
+      <nav class="toolbar" aria-label="Filtros de pronúncia">
+        <input class="search" id="searchInput" type="search" placeholder="Busque uma palavra-chave ou exemplo: bird, phone, teacher, hospital..." />
         <div class="filters">
-          <button class="filter-btn active" type="button" data-filter="all">All</button>
-          <button class="filter-btn" type="button" data-filter="Short vowels">Short</button>
-          <button class="filter-btn" type="button" data-filter="Long vowels">Long</button>
-          <button class="filter-btn" type="button" data-filter="Central vowels">Central</button>
-          <button class="filter-btn" type="button" data-filter="Diphthongs">Diphthongs</button>
-          <button class="print-btn" type="button" onclick="window.print()">Print</button>
+          <button class="filter-btn active" type="button" data-filter="all">Todos</button>
+          <button class="filter-btn" type="button" data-filter="Short vowels">Curtas</button>
+          <button class="filter-btn" type="button" data-filter="Long vowels">Longas</button>
+          <button class="filter-btn" type="button" data-filter="Central vowels">Centrais</button>
+          <button class="filter-btn" type="button" data-filter="Diphthongs">Ditongos</button>
+          <button class="print-btn" type="button" onclick="window.print()">Imprimir</button>
         </div>
       </nav>
     </div>
   </header>
 
   <main class="shell">
-    <section class="section-title">
-      <div>
-        <h2>Sound cards</h2>
-        <p>Each card pairs the IPA symbol with a clean SVG keyword symbol in a sharp editorial grid, so students can quickly connect sound, spelling patterns, and pronunciation memory.</p>
+
+    <section class="method-panel" aria-label="Como usar esta página">
+      <div class="method-kicker">Como usar esta página</div>
+      <div class="method-grid">
+        <div class="method-step">
+          <span>01</span>
+          <h3>Observe a imagem</h3>
+          <p>A imagem ativa uma palavra-chave que o aluno provavelmente já sabe pronunciar, como <strong>bird</strong>, <strong>fish</strong>, <strong>tree</strong> ou <strong>phone</strong>.</p>
+        </div>
+        <div class="method-step">
+          <span>02</span>
+          <h3>Pronuncie a palavra-chave</h3>
+          <p>Repita a palavra-chave devagar e observe o som vocálico dentro dela. Não comece pela escrita. Comece pelo som.</p>
+        </div>
+        <div class="method-step">
+          <span>03</span>
+          <h3>Transfira o som</h3>
+          <p>Use essa mesma qualidade vocálica nas outras palavras do card. Por exemplo: <strong>bird → nurse → work → world</strong>.</p>
+        </div>
+        <div class="method-step">
+          <span>04</span>
+          <h3>Repita em blocos</h3>
+          <p>Pratique o banco de palavras em pequenos grupos. Marque o card como praticado quando o som estiver estável e natural.</p>
+        </div>
       </div>
     </section>
 
-    <div class="empty-state" id="emptyState">No sound cards match your search.</div>
+    <section class="section-title">
+      <div>
+        <h2>Cards de sons</h2>
+        <p>Cada card associa uma imagem-palavra familiar a um som vocálico. O objetivo é criar transferência automática: ver a imagem, lembrar a palavra, isolar o som e aplicar esse som às demais palavras do mesmo card.</p>
+      </div>
+    </section>
 
-    <section class="sound-grid" id="soundGrid" aria-label="IPA vowel sound cards">
+    <div class="empty-state" id="emptyState">Nenhum card corresponde à sua busca.</div>
+
+    <section class="sound-grid" id="soundGrid" aria-label="Cards de sons vocálicos do IPA">
       
       <article class="sound-card" data-type="Short vowels" data-keyword="fish" id="sound-1">
         <div class="card-topline">
           <span class="sound-index">01</span>
-          <span class="sound-type">Short vowels</span>
+          <span class="sound-type">Vogais curtas</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Fish visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Fish">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="fish illustration">
   <path d="M18 50c12-19 38-23 55-4l12-10v28L73 54C56 74 30 69 18 50Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
@@ -701,16 +867,16 @@
               <p class="ipa">/ɪ/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Fish as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Fish como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>short, relaxed, high-front vowel</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal curta, relaxada e anterior alta</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>Keep it short and relaxed. Do not turn it into /iː/.</p>
+            <p class="label">Dica de prática</p>
+            <p>Mantenha o som curto e relaxado. Não transforme em /iː/.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -721,11 +887,11 @@
       <article class="sound-card" data-type="Long vowels" data-keyword="tree" id="sound-2">
         <div class="card-topline">
           <span class="sound-index">02</span>
-          <span class="sound-type">Long vowels</span>
+          <span class="sound-type">Vogais longas</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Tree visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Tree">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="tree illustration">
   <path d="M48 78V44" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
@@ -739,16 +905,16 @@
               <p class="ipa">/iː/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Tree as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Tree como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>long, tense, high-front vowel</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal longa, tensa e anterior alta</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>Smile slightly and hold the sound longer than /ɪ/.</p>
+            <p class="label">Dica de prática</p>
+            <p>Sorria levemente e sustente o som por mais tempo do que em /ɪ/.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -759,11 +925,11 @@
       <article class="sound-card" data-type="Short vowels" data-keyword="cat" id="sound-3">
         <div class="card-topline">
           <span class="sound-index">03</span>
-          <span class="sound-type">Short vowels</span>
+          <span class="sound-type">Vogais curtas</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Cat visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Cat">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="cat illustration">
   <path d="M25 43 21 24l17 10a38 38 0 0 1 20 0l17-10-4 19c5 6 8 13 8 22 0 16-14 25-31 25S17 81 17 65c0-9 3-16 8-22Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
@@ -777,16 +943,16 @@
               <p class="ipa">/æ/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Cat as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Cat como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>open front vowel</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal anterior aberta</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>Open the mouth more than in Portuguese ‘é’. The jaw drops.</p>
+            <p class="label">Dica de prática</p>
+            <p>Abra mais a boca do que no ‘é’ do português. A mandíbula desce.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -797,11 +963,11 @@
       <article class="sound-card" data-type="Long vowels" data-keyword="car" id="sound-4">
         <div class="card-topline">
           <span class="sound-index">04</span>
-          <span class="sound-type">Long vowels</span>
+          <span class="sound-type">Vogais longas</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Car visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Car">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="car illustration">
   <path d="M22 59h52l-7-17c-2-5-6-8-12-8H41c-6 0-10 3-12 8l-7 17Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
@@ -816,16 +982,16 @@
               <p class="ipa">/ɑː/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Car as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Car como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>long, open back vowel</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal longa, aberta e posterior</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>A deep open sound. In American English, the final R is pronounced in car.</p>
+            <p class="label">Dica de prática</p>
+            <p>Som aberto e profundo. No inglês americano, o R final é pronunciado em car.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -836,11 +1002,11 @@
       <article class="sound-card" data-type="Short vowels" data-keyword="clock" id="sound-5">
         <div class="card-topline">
           <span class="sound-index">05</span>
-          <span class="sound-type">Short vowels</span>
+          <span class="sound-type">Vogais curtas</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Clock visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Clock">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="clock illustration">
   <circle cx="48" cy="52" r="29" fill="none" stroke="currentColor" stroke-width="4"/>
@@ -854,16 +1020,16 @@
               <p class="ipa">/ɒ/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Clock as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Clock como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>short, rounded back vowel</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal curta, arredondada e posterior</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>Often British. In many American accents, words like hot/clock move toward /ɑː/.</p>
+            <p class="label">Dica de prática</p>
+            <p>Mais comum no inglês britânico. Em muitos sotaques americanos, palavras como hot/clock se aproximam de /ɑː/.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -874,11 +1040,11 @@
       <article class="sound-card" data-type="Long vowels" data-keyword="horse" id="sound-6">
         <div class="card-topline">
           <span class="sound-index">06</span>
-          <span class="sound-type">Long vowels</span>
+          <span class="sound-type">Vogais longas</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Horse visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Horse">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="horse illustration">
   <path d="M30 80V54c0-13 9-24 22-27l6-13 7 18c9 5 15 14 15 25v23" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
@@ -891,16 +1057,16 @@
               <p class="ipa">/ɔː/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Horse as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Horse como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>long rounded vowel</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal longa e arredondada</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>Round the lips and keep the sound steady.</p>
+            <p class="label">Dica de prática</p>
+            <p>Arredonde os lábios e mantenha o som estável.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -911,11 +1077,11 @@
       <article class="sound-card" data-type="Short vowels" data-keyword="bull" id="sound-7">
         <div class="card-topline">
           <span class="sound-index">07</span>
-          <span class="sound-type">Short vowels</span>
+          <span class="sound-type">Vogais curtas</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Bull visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Bull">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="bull illustration">
   <path d="M25 37c-8-4-13-10-14-18 13 1 21 8 24 17M61 36c3-9 11-16 24-17-1 8-6 14-14 18" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -930,16 +1096,16 @@
               <p class="ipa">/ʊ/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Bull as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Bull como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>short, relaxed, rounded vowel</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal curta, relaxada e arredondada</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>Shorter and more relaxed than /uː/. Avoid pronouncing full like fool.</p>
+            <p class="label">Dica de prática</p>
+            <p>Mais curta e relaxada que /uː/. Evite pronunciar full como fool.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -950,11 +1116,11 @@
       <article class="sound-card" data-type="Long vowels" data-keyword="boot" id="sound-8">
         <div class="card-topline">
           <span class="sound-index">08</span>
-          <span class="sound-type">Long vowels</span>
+          <span class="sound-type">Vogais longas</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Boot visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Boot">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="boot illustration">
   <path d="M35 14h25v41c0 5 3 8 8 10l10 4c5 2 8 6 8 12v5H20v-8c0-7 5-13 12-13h3V14Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
@@ -966,16 +1132,16 @@
               <p class="ipa">/uː/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Boot as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Boot como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>long, tense, rounded vowel</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal longa, tensa e arredondada</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>Round the lips and hold the sound longer.</p>
+            <p class="label">Dica de prática</p>
+            <p>Arredonde os lábios e sustente o som por mais tempo.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -986,11 +1152,11 @@
       <article class="sound-card" data-type="Central vowels" data-keyword="computer" id="sound-9">
         <div class="card-topline">
           <span class="sound-index">09</span>
-          <span class="sound-type">Central vowels</span>
+          <span class="sound-type">Vogais centrais</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Computer visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Computer">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="computer illustration">
   <rect x="18" y="18" width="60" height="42" rx="5" fill="none" stroke="currentColor" stroke-width="4"/>
@@ -1003,16 +1169,16 @@
               <p class="ipa">/ə/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Computer as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Computer como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>schwa, unstressed central vowel</p>
+            <p class="label">Posição da boca</p>
+            <p>schwa, vogal central átona</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>The most neutral English vowel. It is always unstressed.</p>
+            <p class="label">Dica de prática</p>
+            <p>A vogal mais neutra do inglês. Ela é sempre átona.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -1023,11 +1189,11 @@
       <article class="sound-card" data-type="Central vowels" data-keyword="bird" id="sound-10">
         <div class="card-topline">
           <span class="sound-index">10</span>
-          <span class="sound-type">Central vowels</span>
+          <span class="sound-type">Vogais centrais</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Bird visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Bird">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="bird illustration">
   <path d="M24 58c0-18 13-33 31-33 13 0 23 8 27 19l10 4-10 5c-2 18-15 31-33 31-15 0-25-10-25-26Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
@@ -1040,16 +1206,16 @@
               <p class="ipa">/ɜː/ · AmE /ɝ/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Bird as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Bird como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>central vowel with R-coloring in American English</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal central com coloração de R no inglês americano</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>In American English, let the R shape the vowel: bird, nurse, work.</p>
+            <p class="label">Dica de prática</p>
+            <p>No inglês americano, deixe o R moldar a vogal: bird, nurse, work.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -1060,11 +1226,11 @@
       <article class="sound-card" data-type="Short vowels" data-keyword="egg" id="sound-11">
         <div class="card-topline">
           <span class="sound-index">11</span>
-          <span class="sound-type">Short vowels</span>
+          <span class="sound-type">Vogais curtas</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Egg visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Egg">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="egg illustration">
   <path d="M48 12c17 0 29 24 29 45 0 18-12 30-29 30S19 75 19 57c0-21 12-45 29-45Z" fill="none" stroke="currentColor" stroke-width="4"/>
@@ -1076,16 +1242,16 @@
               <p class="ipa">/e/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Egg as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Egg como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>short mid-front vowel</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal curta, média e anterior</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>A clear short vowel. Avoid making it too long.</p>
+            <p class="label">Dica de prática</p>
+            <p>Vogal curta e clara. Evite alongar demais.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -1096,11 +1262,11 @@
       <article class="sound-card" data-type="Short vowels" data-keyword="up" id="sound-12">
         <div class="card-topline">
           <span class="sound-index">12</span>
-          <span class="sound-type">Short vowels</span>
+          <span class="sound-type">Vogais curtas</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Up visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Up">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="up arrow illustration">
   <path d="M48 14 20 42h17v40h22V42h17L48 14Z" fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"/>
@@ -1111,16 +1277,16 @@
               <p class="ipa">/ʌ/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Up as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Up como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>short central-open vowel</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal curta, central e aberta</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>Relaxed, short, and central. Common in stressed syllables.</p>
+            <p class="label">Dica de prática</p>
+            <p>Relaxada, curta e central. Comum em sílabas tônicas.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -1131,11 +1297,11 @@
       <article class="sound-card" data-type="Diphthongs" data-keyword="train" id="sound-13">
         <div class="card-topline">
           <span class="sound-index">13</span>
-          <span class="sound-type">Diphthongs</span>
+          <span class="sound-type">Ditongos</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Train visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Train">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="train illustration">
   <rect x="20" y="23" width="56" height="42" rx="8" fill="none" stroke="currentColor" stroke-width="4"/>
@@ -1149,16 +1315,16 @@
               <p class="ipa">/eɪ/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Train as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Train como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>gliding vowel: /e/ → /ɪ/</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal deslizante: /e/ → /ɪ/</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>Start open-mid and glide upward. Do not pronounce it as two separate syllables.</p>
+            <p class="label">Dica de prática</p>
+            <p>Comece em posição média-aberta e deslize para cima. Não pronuncie como duas sílabas separadas.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -1169,11 +1335,11 @@
       <article class="sound-card" data-type="Diphthongs" data-keyword="phone" id="sound-14">
         <div class="card-topline">
           <span class="sound-index">14</span>
-          <span class="sound-type">Diphthongs</span>
+          <span class="sound-type">Ditongos</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Phone visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Phone">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="phone illustration">
   <path d="M30 18h36c6 0 10 4 10 10v40c0 6-4 10-10 10H30c-6 0-10-4-10-10V28c0-6 4-10 10-10Z" fill="none" stroke="currentColor" stroke-width="4"/>
@@ -1186,16 +1352,16 @@
               <p class="ipa">AmE /oʊ/ · BrE /əʊ/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Phone as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Phone como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>rounded gliding vowel</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal deslizante e arredondada</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>For American English, start with /o/ and glide to /ʊ/.</p>
+            <p class="label">Dica de prática</p>
+            <p>No inglês americano, comece com /o/ e deslize para /ʊ/.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -1206,11 +1372,11 @@
       <article class="sound-card" data-type="Diphthongs" data-keyword="bike" id="sound-15">
         <div class="card-topline">
           <span class="sound-index">15</span>
-          <span class="sound-type">Diphthongs</span>
+          <span class="sound-type">Ditongos</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Bike visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Bike">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="bike illustration">
   <circle cx="27" cy="66" r="14" fill="none" stroke="currentColor" stroke-width="4"/>
@@ -1223,16 +1389,16 @@
               <p class="ipa">/aɪ/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Bike as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Bike como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>gliding vowel: /a/ → /ɪ/</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal deslizante: /a/ → /ɪ/</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>Start open and glide upward. Keep one smooth movement.</p>
+            <p class="label">Dica de prática</p>
+            <p>Comece aberto e deslize para cima. Mantenha um movimento único e suave.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -1243,11 +1409,11 @@
       <article class="sound-card" data-type="Diphthongs" data-keyword="owl" id="sound-16">
         <div class="card-topline">
           <span class="sound-index">16</span>
-          <span class="sound-type">Diphthongs</span>
+          <span class="sound-type">Ditongos</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Owl visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Owl">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="owl illustration">
   <path d="M25 38c0-15 10-25 23-25s23 10 23 25v25c0 15-10 25-23 25S25 78 25 63V38Z" fill="none" stroke="currentColor" stroke-width="4"/>
@@ -1262,16 +1428,16 @@
               <p class="ipa">/aʊ/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Owl as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Owl como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>gliding vowel: /a/ → /ʊ/</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal deslizante: /a/ → /ʊ/</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>Open the mouth first, then round slightly at the end.</p>
+            <p class="label">Dica de prática</p>
+            <p>Abra a boca primeiro e arredonde levemente no final.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -1282,11 +1448,11 @@
       <article class="sound-card" data-type="Diphthongs" data-keyword="boy" id="sound-17">
         <div class="card-topline">
           <span class="sound-index">17</span>
-          <span class="sound-type">Diphthongs</span>
+          <span class="sound-type">Ditongos</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Boy visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Boy">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="boy illustration">
   <circle cx="48" cy="29" r="14" fill="none" stroke="currentColor" stroke-width="4"/>
@@ -1299,16 +1465,16 @@
               <p class="ipa">/ɔɪ/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Boy as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Boy como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>gliding vowel: /ɔ/ → /ɪ/</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal deslizante: /ɔ/ → /ɪ/</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>Start rounded and glide toward /ɪ/.</p>
+            <p class="label">Dica de prática</p>
+            <p>Comece arredondado e deslize em direção a /ɪ/.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -1319,11 +1485,11 @@
       <article class="sound-card" data-type="Diphthongs" data-keyword="ear" id="sound-18">
         <div class="card-topline">
           <span class="sound-index">18</span>
-          <span class="sound-type">Diphthongs</span>
+          <span class="sound-type">Ditongos</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Ear visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Ear">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="ear illustration">
   <path d="M34 53c0-19 11-32 27-32 13 0 23 10 23 23 0 18-15 21-20 34-3 8-9 12-17 12-7 0-13-4-16-10" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"/>
@@ -1335,16 +1501,16 @@
               <p class="ipa">/ɪə/ · AmE /ɪr/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Ear as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Ear como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>near-close vowel plus R/glide</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal quase fechada com R/deslizamento</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>In American English, pronounce the final R clearly: ear, here, year.</p>
+            <p class="label">Dica de prática</p>
+            <p>No inglês americano, pronuncie claramente o R final: ear, here, year.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -1355,11 +1521,11 @@
       <article class="sound-card" data-type="Diphthongs" data-keyword="chair" id="sound-19">
         <div class="card-topline">
           <span class="sound-index">19</span>
-          <span class="sound-type">Diphthongs</span>
+          <span class="sound-type">Ditongos</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Chair visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Chair">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="chair illustration">
   <path d="M32 14h32v36H32zM25 50h46v15H25zM32 65v22M64 65v22M38 87h-15M58 87h15" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1370,16 +1536,16 @@
               <p class="ipa">/eə/ · AmE /er/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Chair as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Chair como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>mid-front vowel plus R/glide</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal média anterior com R/deslizamento</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>In American English, the R is pronounced: chair, hair, there.</p>
+            <p class="label">Dica de prática</p>
+            <p>No inglês americano, o R é pronunciado: chair, hair, there.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -1390,11 +1556,11 @@
       <article class="sound-card" data-type="Diphthongs" data-keyword="tourist" id="sound-20">
         <div class="card-topline">
           <span class="sound-index">20</span>
-          <span class="sound-type">Diphthongs</span>
+          <span class="sound-type">Ditongos</span>
         </div>
         <div class="hero-row">
           <div class="symbol-lockup">
-            <div class="svg-orb" aria-label="Tourist visual symbol">
+            <div class="svg-orb" aria-label="Símbolo visual: Tourist">
               
 <svg viewBox="0 0 96 96" role="img" aria-label="tourist illustration">
   <circle cx="40" cy="22" r="9" fill="none" stroke="currentColor" stroke-width="4"/>
@@ -1408,16 +1574,16 @@
               <p class="ipa">/ʊə/ · AmE /ʊr/</p>
             </div>
           </div>
-          <button class="practice-btn" type="button" aria-label="Mark Tourist as practiced">Practice</button>
+          <button class="practice-btn" type="button" aria-label="Marcar Tourist como praticado">Praticar</button>
         </div>
         <div class="micro-grid">
           <div>
-            <p class="label">Mouth position</p>
-            <p>unusual rounded vowel plus R/glide</p>
+            <p class="label">Posição da boca</p>
+            <p>vogal arredondada menos comum com R/deslizamento</p>
           </div>
           <div>
-            <p class="label">Teaching cue</p>
-            <p>A less common sound. Practice slowly: tourist, sure, plural.</p>
+            <p class="label">Dica de prática</p>
+            <p>A less common sound. Praticar slowly: tourist, sure, plural.</p>
           </div>
         </div>
         <div class="word-bank">
@@ -1429,7 +1595,7 @@
   </main>
 
   <footer>
-    Redesigned as a standalone HTML pronunciation page · Based on the original Vowel Pronunciation material.
+    Sistema de pronúncia Imagem + Som · Desenvolvido para transferência vocálica automática e repetição guiada.
   </footer>
 
   <script>
@@ -1475,9 +1641,22 @@
       button.addEventListener('click', () => {
         const card = button.closest('.sound-card');
         card.classList.toggle('done');
-        button.textContent = card.classList.contains('done') ? 'Practiced' : 'Practice';
+        button.textContent = card.classList.contains('done') ? 'Praticard' : 'Praticar';
       });
     });
+
+    const revealToggle = document.querySelector('.reveal-toggle');
+    const revealContent = document.getElementById('ipaReveal');
+
+    if (revealToggle && revealContent) {
+      revealToggle.addEventListener('click', () => {
+        const isOpen = revealToggle.getAttribute('aria-expanded') === 'true';
+        revealToggle.setAttribute('aria-expanded', String(!isOpen));
+        revealContent.hidden = isOpen;
+        revealToggle.setAttribute('aria-label', isOpen ? 'Expandir explicação' : 'Recolher explicação');
+      });
+    }
+
   </script>
 </body>
 </html>
