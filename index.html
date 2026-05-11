@@ -19,9 +19,9 @@
       --blue-soft: #eef5f9;
       --white: #ffffff;
       --shadow: 0 24px 70px rgba(7, 24, 39, .14);
-      --radius-xl: 30px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
+      --radius-xl: 0px;
+      --radius-lg: 0px;
+      --radius-md: 0px;
     }
 
     * { box-sizing: border-box; }
@@ -66,7 +66,7 @@
       gap: 10px;
       padding: 9px 14px;
       border: 1px solid rgba(201, 164, 92, .42);
-      border-radius: 999px;
+      border-radius: 0;
       background: rgba(255,255,255,.68);
       color: var(--navy-2);
       font-size: 12px;
@@ -80,7 +80,7 @@
       content: "";
       width: 8px;
       height: 8px;
-      border-radius: 99px;
+      border-radius: 0;
       background: var(--gold);
       box-shadow: 0 0 0 5px rgba(201, 164, 92, .18);
     }
@@ -174,7 +174,7 @@
       padding: 14px;
       background: rgba(255, 253, 248, .82);
       border: 1px solid rgba(255,255,255,.8);
-      border-radius: 24px;
+      border-radius: 0;
       display: grid;
       grid-template-columns: 1fr auto;
       gap: 14px;
@@ -187,7 +187,7 @@
       width: 100%;
       border: 1px solid var(--line);
       background: var(--white);
-      border-radius: 16px;
+      border-radius: 0;
       padding: 14px 16px;
       font: inherit;
       outline: none;
@@ -203,7 +203,7 @@
     .filter-btn, .practice-btn, .print-btn {
       border: 1px solid rgba(7, 24, 39, .12);
       background: #fff;
-      border-radius: 999px;
+      border-radius: 0;
       padding: 11px 14px;
       font-size: 13px;
       font-weight: 800;
@@ -290,7 +290,7 @@
 
     .sound-type {
       padding: 7px 10px;
-      border-radius: 999px;
+      border-radius: 0;
       background: var(--blue-soft);
       color: var(--navy-2);
       font-size: 12px;
@@ -317,7 +317,7 @@
       flex: 0 0 92px;
       display: grid;
       place-items: center;
-      border-radius: 28px;
+      border-radius: 0;
       background:
         radial-gradient(circle at 30% 20%, rgba(255,255,255,.98), rgba(255,255,255,.64)),
         linear-gradient(135deg, #f7efe1, #edf5f7);
@@ -337,7 +337,7 @@
       height: 54px;
       right: -20px;
       bottom: -20px;
-      border-radius: 50%;
+      border-radius: 0;
       background: rgba(216, 79, 115, .10);
     }
 
@@ -373,7 +373,7 @@
     .micro-grid > div {
       border: 1px solid var(--line);
       background: rgba(251, 247, 239, .64);
-      border-radius: 18px;
+      border-radius: 0;
       padding: 14px;
     }
 
@@ -404,7 +404,7 @@
     .word-bank span {
       border: 1px solid rgba(7,24,39,.09);
       background: #fff;
-      border-radius: 999px;
+      border-radius: 0;
       padding: 7px 10px;
       font-size: 13px;
       font-weight: 700;
@@ -424,7 +424,7 @@
       padding: 32px;
       text-align: center;
       border: 1px dashed rgba(7,24,39,.25);
-      border-radius: 24px;
+      border-radius: 0;
       color: var(--muted);
       background: rgba(255,255,255,.5);
     }
@@ -448,12 +448,12 @@
       header.hero { padding-top: 30px; }
       .hero-copy { padding: 28px; }
       .stat-card strong { font-size: 28px; }
-      .sound-card { padding: 18px; border-radius: 24px; }
+      .sound-card { padding: 18px; border-radius: 0; }
       .svg-orb {
         width: 76px;
         height: 76px;
         flex-basis: 76px;
-        border-radius: 22px;
+        border-radius: 0;
       }
       .svg-orb svg {
         width: 52px;
@@ -496,7 +496,7 @@
         <section class="hero-copy">
           <p class="eyebrow">International Phonetic Alphabet</p>
           <h1>Vowel Sound Map</h1>
-          <p class="subtitle">A professional, visual pronunciation page that connects each IPA vowel sound to a memorable keyword symbol, a mouth-position cue, and a focused word bank for guided repetition.</p>
+          <p class="subtitle">A professional, visual pronunciation page with a sharp editorial layout that connects each IPA vowel sound to a memorable keyword symbol, a mouth-position cue, and a focused word bank for guided repetition.</p>
         </section>
         <aside class="hero-stats" aria-label="Page overview">
           <div class="stat-card"><strong>20</strong><span>keyword sounds</span></div>
@@ -523,7 +523,7 @@
     <section class="section-title">
       <div>
         <h2>Sound cards</h2>
-        <p>Each card pairs the IPA symbol with a clean SVG keyword symbol, so students can quickly connect sound, spelling patterns, and pronunciation memory.</p>
+        <p>Each card pairs the IPA symbol with a clean SVG keyword symbol in a sharp editorial grid, so students can quickly connect sound, spelling patterns, and pronunciation memory.</p>
       </div>
     </section>
 
