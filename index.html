@@ -69,7 +69,7 @@
     }
 
     header.hero {
-      padding: 56px 0 34px;
+      padding: 36px 0 24px;
       border-bottom: 1px solid var(--border);
       background:
         linear-gradient(180deg, rgba(246,244,239,.95), rgba(246,244,239,.74)),
@@ -84,8 +84,8 @@
       border: 1px solid var(--border);
       background: rgba(255,255,255,.54);
       color: var(--navy);
-      font-size: 11px;
-      letter-spacing: .22em;
+      font-size: 10px;
+      letter-spacing: .20em;
       text-transform: uppercase;
       font-weight: 800;
     }
@@ -99,7 +99,7 @@
     }
 
     .hero-panel {
-      margin-top: 24px;
+      margin-top: 18px;
       display: grid;
       grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
       gap: 24px;
@@ -109,13 +109,13 @@
     .hero-copy {
       background:
         linear-gradient(135deg, rgba(5, 13, 26, .98), rgba(11, 29, 58, .98));
-      padding: clamp(34px, 5vw, 64px);
+      padding: clamp(24px, 3.4vw, 42px);
       color: var(--white);
       box-shadow: var(--shadow);
       border: 1px solid rgba(196,164,90,.26);
       position: relative;
       overflow: hidden;
-      min-height: 360px;
+      min-height: 260px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -124,7 +124,7 @@
     .hero-copy::before {
       content: "";
       position: absolute;
-      inset: 22px;
+      inset: 16px;
       border: 1px solid rgba(196,164,90,.26);
       pointer-events: none;
     }
@@ -132,10 +132,10 @@
     .hero-copy::after {
       content: "IPA";
       position: absolute;
-      right: 22px;
-      bottom: -44px;
+      right: 18px;
+      bottom: -30px;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 172px;
+      font-size: 118px;
       line-height: 1;
       letter-spacing: -.08em;
       font-weight: 700;
@@ -148,14 +148,14 @@
       letter-spacing: .22em;
       text-transform: uppercase;
       font-weight: 800;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
       position: relative;
       z-index: 1;
     }
 
     h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(48px, 8vw, 92px);
+      font-size: clamp(36px, 5.6vw, 66px);
       line-height: .92;
       letter-spacing: -.045em;
       font-weight: 700;
@@ -165,10 +165,10 @@
     }
 
     .hero-copy .subtitle {
-      margin-top: 24px;
+      margin-top: 18px;
       max-width: 690px;
       font-size: clamp(15px, 1.65vw, 20px);
-      line-height: 1.75;
+      line-height: 1.58;
       color: rgba(255,255,255,.78);
       position: relative;
       z-index: 1;
@@ -183,18 +183,18 @@
     .stat-card {
       background: var(--paper);
       border: 1px solid var(--border);
-      padding: 26px 24px;
+      padding: 18px 18px;
       box-shadow: 0 16px 34px rgba(5, 13, 26, .07);
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: 108px;
+      min-height: 82px;
     }
 
     .stat-card strong {
       display: block;
       font-family: 'Cormorant Garamond', serif;
-      font-size: 38px;
+      font-size: 28px;
       color: var(--navy);
       letter-spacing: -.035em;
       line-height: .96;
@@ -203,11 +203,11 @@
 
     .stat-card span {
       color: var(--text-muted);
-      font-size: 11px;
+      font-size: 10px;
       text-transform: uppercase;
-      letter-spacing: .18em;
+      letter-spacing: .16em;
       font-weight: 800;
-      margin-top: 10px;
+      margin-top: 7px;
     }
 
     .toolbar {
@@ -502,7 +502,7 @@
       border: 1px dashed var(--text-light);
       color: var(--text-muted);
       background: rgba(255,255,255,.48);
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
     footer {
@@ -518,9 +518,9 @@
     .reveal-toggle {
       display: grid;
       place-items: center;
-      width: 34px;
-      height: 34px;
-      margin: 18px 0 0 auto;
+      width: 28px;
+      height: 28px;
+      margin: 12px 0 0 auto;
       padding: 0;
       border: 1px solid rgba(196,164,90,.34);
       background: rgba(255,255,255,.04);
@@ -541,7 +541,7 @@
       display: inline-grid;
       place-items: center;
       color: var(--gold-light);
-      font-size: 22px;
+      font-size: 18px;
       line-height: 1;
       transform: translateY(-2px);
       transition: transform .18s ease;
@@ -553,8 +553,8 @@
 
     .reveal-content {
       display: block;
-      margin-top: 22px;
-      padding-top: 22px;
+      margin-top: 16px;
+      padding-top: 16px;
       border-top: 1px solid rgba(196,164,90,.26);
       color: rgba(255,255,255,.78);
       position: relative;
@@ -628,7 +628,7 @@
       font-size: 12px;
       letter-spacing: .18em;
       font-weight: 900;
-      margin-bottom: 18px;
+      margin-bottom: 12px;
     }
 
     .method-step h3 {
@@ -651,12 +651,99 @@
       font-weight: 800;
     }
 
+
+    .download-panel {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto 34px;
+      padding: 28px;
+      border: 1px solid var(--border);
+      background: var(--navy);
+      color: var(--white);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .download-panel::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(196,164,90,.25);
+      pointer-events: none;
+    }
+
+    .download-kicker {
+      display: block;
+      color: var(--gold-light);
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .download-panel h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1;
+      letter-spacing: -.035em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .download-panel p {
+      color: rgba(255,255,255,.74);
+      font-size: 14px;
+      line-height: 1.6;
+      position: relative;
+      z-index: 1;
+    }
+
+    .download-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 14px 18px;
+      border: 1px solid var(--gold);
+      background: var(--gold);
+      color: var(--navy-deep);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      font-size: 12px;
+      font-weight: 900;
+      position: relative;
+      z-index: 1;
+      transition: .18s ease;
+      white-space: nowrap;
+    }
+
+    .download-link:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+      transform: translateY(-1px);
+    }
+
     @media (max-width: 900px) {
       .hero-panel,
       .sound-grid,
       .micro-grid,
-      .method-grid {
+      .method-grid,
+      .download-panel {
         grid-template-columns: 1fr;
+      }
+
+      .download-link {
+        width: 100%;
       }
 
       .toolbar {
@@ -683,12 +770,12 @@
       }
 
       .hero-copy {
-        padding: 30px;
-        min-height: 330px;
+        padding: 24px;
+        min-height: 260px;
       }
 
       .hero-copy::before {
-        inset: 14px;
+        inset: 10px;
       }
 
       .stat-card strong {
@@ -715,7 +802,7 @@
       }
 
       .ipa {
-        font-size: 22px;
+        font-size: 18px;
       }
 
       .hero-row {
@@ -1593,6 +1680,18 @@
     
     </section>
   </main>
+
+
+    <section class="download-panel" aria-label="Download do material">
+      <div>
+        <span class="download-kicker">Material de apoio</span>
+        <h2>Baixe o material completo</h2>
+        <p>Use o PDF como guia de estudo, revisão e prática fora da página interativa.</p>
+      </div>
+      <a class="download-link" href="https://drive.google.com/open?id=1hUpyspWKa_DgLxJg0nhB-gKiM8IlKa64&usp=drive_fs" target="_blank" rel="noopener noreferrer">
+        Fazer download do material
+      </a>
+    </section>
 
   <footer>
     Sistema de pronúncia Imagem + Som · Desenvolvido para transferência vocálica automática e repetição guiada.
