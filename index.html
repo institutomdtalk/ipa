@@ -3,517 +3,500 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vowel Sound Map</title>
+  <title>Vowel Sound Map | MD Talk</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Raleway:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <style>
+
     :root {
-      --navy: #0B1D3A;
-      --navy-deep: #050D1A;
-      --navy-mid: #0F2645;
+      --navy: #07162D;
+      --navy-2: #0B1D3A;
+      --navy-3: #102A4C;
+      --ink: #1E2430;
+      --body: #4C4A46;
+      --muted: #77736C;
       --gold: #C4A45A;
-      --gold-light: #D4BA7A;
-      --off-white: #F6F4EF;
-      --text-body: #3A3632;
-      --text-muted: #7A7570;
-      --text-light: #A8A39D;
-      --border: #E2DED8;
+      --gold-2: #D7C083;
+      --cream: #F6F2EA;
+      --paper: #FFFDF8;
+      --paper-2: #FBF7EF;
+      --line: rgba(11, 29, 58, .13);
+      --line-dark: rgba(255,255,255,.14);
       --white: #FFFFFF;
-      --paper: #FBFAF7;
-      --shadow: 0 20px 56px rgba(5, 13, 26, .10);
+      --shadow: 0 24px 70px rgba(7, 22, 45, .12);
+      --soft-shadow: 0 16px 36px rgba(7, 22, 45, .075);
       --serif: 'Cormorant Garamond', Georgia, serif;
       --sans: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      width: 100%;
-      min-height: 100%;
-      overflow-x: hidden;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    html, body { width: 100%; min-height: 100%; overflow-x: hidden; }
     body {
       font-family: var(--sans);
-      background: var(--off-white);
-      color: var(--text-body);
-      transition: opacity ease-in 0.2s;
+      color: var(--body);
+      background:
+        radial-gradient(circle at top left, rgba(196,164,90,.15), transparent 26rem),
+        linear-gradient(180deg, #FBF8F1 0%, var(--cream) 42%, #EFE8DD 100%);
       min-height: 100vh;
     }
-
     body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-      background:
-        linear-gradient(90deg, rgba(11, 29, 58, .045) 1px, transparent 1px),
-        linear-gradient(rgba(11, 29, 58, .045) 1px, transparent 1px);
-      background-size: 42px 42px;
-      opacity: .55;
-      mask-image: linear-gradient(to bottom, black 0%, transparent 78%);
+      background-image:
+        linear-gradient(rgba(11,29,58,.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(11,29,58,.04) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,.8), transparent 76%);
+      z-index: -1;
     }
+    a { color: inherit; }
+    button, input { font: inherit; }
+    .shell { width: min(1120px, calc(100% - 32px)); margin: 0 auto; position: relative; }
 
-    .shell {
-      width: min(1080px, calc(100% - 32px));
-      margin: 0 auto;
-      position: relative;
-    }
-
-    header.hero {
-      padding: 26px 0 18px;
-      border-bottom: 1px solid var(--border);
-      background:
-        linear-gradient(180deg, rgba(246,244,239,.95), rgba(246,244,239,.74)),
-        radial-gradient(circle at 0% 0%, rgba(196,164,90,.20), transparent 34rem);
-    }
-
-    .brand-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 14px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.54);
-      color: var(--navy);
-      font-size: 10px;
-      letter-spacing: .20em;
-      text-transform: uppercase;
-      font-weight: 800;
-    }
-
-    .brand-pill::before {
-      content: "";
-      width: 18px;
-      height: 2px;
-      background: var(--gold);
-      display: inline-block;
-    }
-
-    .hero-panel {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: minmax(0, 1.35fr) minmax(280px, .65fr);
-      gap: 14px;
-      align-items: stretch;
-    }
-
-    .hero-copy {
-      background:
-        linear-gradient(135deg, rgba(5, 13, 26, .98), rgba(11, 29, 58, .98));
-      padding: clamp(18px, 2.8vw, 32px);
+    .hero {
+      padding: 22px 0 18px;
       color: var(--white);
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(196,164,90,.26);
+      background:
+        radial-gradient(circle at 16% 0%, rgba(215,192,131,.26), transparent 28rem),
+        radial-gradient(circle at 88% 22%, rgba(255,255,255,.08), transparent 26rem),
+        linear-gradient(135deg, #050D1A 0%, var(--navy) 48%, #0B203D 100%);
+      border-bottom: 1px solid rgba(196,164,90,.28);
       position: relative;
       overflow: hidden;
-      min-height: 210px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
     }
-
-    .hero-copy::before {
-      content: "";
-      position: absolute;
-      inset: 16px;
-      border: 1px solid rgba(196,164,90,.26);
-      pointer-events: none;
-    }
-
-    .hero-copy::after {
+    .hero::after {
       content: "IPA";
       position: absolute;
-      right: 18px;
-      bottom: -30px;
+      right: -22px;
+      bottom: -56px;
       font-family: var(--serif);
-      font-size: 92px;
-      line-height: 1;
-      letter-spacing: -.08em;
+      font-size: clamp(120px, 18vw, 260px);
       font-weight: 700;
-      color: rgba(255,255,255,.05);
+      letter-spacing: -.12em;
+      color: rgba(255,255,255,.035);
+      pointer-events: none;
     }
-
-    .eyebrow {
-      color: var(--gold-light);
-      font-size: 12px;
-      letter-spacing: .22em;
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 1;
+    }
+    .brand-pill, .portal-mini {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 34px;
+      border: 1px solid rgba(215,192,131,.35);
+      background: rgba(255,255,255,.055);
+      color: rgba(255,255,255,.82);
+      padding: 9px 12px;
+      text-decoration: none;
       text-transform: uppercase;
-      font-weight: 800;
+      letter-spacing: .17em;
+      font-size: 10px;
+      font-weight: 900;
+      backdrop-filter: blur(14px);
+    }
+    .brand-pill::before { content: ""; width: 18px; height: 2px; background: var(--gold-2); }
+    .portal-mini { transition: .2s ease; }
+    .portal-mini:hover { background: var(--gold-2); color: var(--navy); border-color: var(--gold-2); transform: translateY(-1px); }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) 330px;
+      gap: 18px;
+      align-items: stretch;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-main {
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: clamp(22px, 4vw, 44px);
+      border: 1px solid rgba(215,192,131,.25);
+      background:
+        linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03)),
+        rgba(255,255,255,.035);
+      box-shadow: 0 28px 80px rgba(0,0,0,.22);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-main::before {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border: 1px solid rgba(215,192,131,.14);
+      pointer-events: none;
+    }
+    .kicker {
+      color: var(--gold-2);
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: 11px;
+      font-weight: 900;
       margin-bottom: 12px;
       position: relative;
       z-index: 1;
     }
-
     h1 {
       font-family: var(--serif);
-      font-size: clamp(30px, 4.8vw, 52px);
-      line-height: .92;
-      letter-spacing: -.045em;
+      font-size: clamp(44px, 8vw, 92px);
+      line-height: .82;
+      letter-spacing: -.06em;
       font-weight: 700;
       max-width: 820px;
       position: relative;
       z-index: 1;
     }
-
-    .hero-copy .subtitle {
+    .hero-subtitle {
       margin-top: 18px;
-      max-width: 690px;
-      font-size: clamp(15px, 1.65vw, 20px);
-      line-height: 1.48;
-      color: rgba(255,255,255,.78);
+      max-width: 760px;
+      color: rgba(255,255,255,.76);
+      font-size: clamp(14px, 1.6vw, 18px);
+      line-height: 1.62;
       position: relative;
       z-index: 1;
-      font-weight: 400;
     }
-
-    .hero-stats {
-      display: grid;
-      gap: 14px;
+    .reveal-toggle {
+      width: 24px;
+      height: 24px;
+      border: 1px solid rgba(215,192,131,.35);
+      background: rgba(255,255,255,.06);
+      color: var(--gold-2);
+      margin-left: 8px;
+      cursor: pointer;
+      vertical-align: middle;
+      transition: .2s ease;
     }
-
-    .stat-card {
-      background: var(--paper);
-      border: 1px solid var(--border);
-      padding: 14px 14px;
-      box-shadow: 0 16px 34px rgba(5, 13, 26, .07);
+    .reveal-toggle:hover { background: var(--gold-2); color: var(--navy); }
+    .reveal-toggle[aria-expanded="true"] .reveal-icon { display: inline-block; transform: rotate(180deg); }
+    .reveal-content {
+      display: block;
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,.13);
+      color: rgba(255,255,255,.82);
+      font-size: 13.5px;
+      line-height: 1.7;
+    }
+    .hero-side { display: grid; gap: 12px; }
+    .metric-card {
+      border: 1px solid rgba(215,192,131,.22);
+      background: rgba(255,255,255,.06);
+      padding: 18px;
+      min-height: 90px;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      min-height: 68px;
+      backdrop-filter: blur(14px);
     }
-
-    .stat-card strong {
-      display: block;
+    .metric-card strong {
       font-family: var(--serif);
-      font-size: 23px;
-      color: var(--navy);
-      letter-spacing: -.035em;
-      line-height: .96;
-      font-weight: 700;
+      color: var(--gold-2);
+      font-size: 30px;
+      line-height: .9;
+      letter-spacing: -.04em;
     }
-
-    .stat-card span {
-      color: var(--text-muted);
-      font-size: 10px;
+    .metric-card span {
+      color: rgba(255,255,255,.62);
       text-transform: uppercase;
       letter-spacing: .16em;
-      font-weight: 800;
-      margin-top: 7px;
+      font-size: 10px;
+      font-weight: 900;
+      margin-top: 10px;
     }
 
-    .toolbar {
+    .control-panel {
+      margin: -1px auto 0;
+      background: rgba(251,247,239,.90);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(18px);
       position: sticky;
       top: 0;
-      z-index: 10;
-      margin: 14px 0 24px;
-      padding: 11px;
-      background: rgba(246,244,239,.92);
-      border: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 14px;
-      align-items: center;
-      box-shadow: 0 14px 34px rgba(5,13,26,.07);
-      backdrop-filter: blur(16px);
+      z-index: 20;
     }
-
+    .toolbar {
+      padding: 12px 0;
+      display: grid;
+      grid-template-columns: minmax(260px, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+    }
+    .search-wrap { position: relative; }
+    .search-wrap svg {
+      position: absolute;
+      left: 13px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      color: var(--gold);
+      pointer-events: none;
+    }
     .search {
       width: 100%;
-      border: 1px solid var(--border);
-      background: var(--white);
-      padding: 11px 13px;
-      font: inherit;
+      height: 44px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--ink);
+      padding: 0 14px 0 40px;
       outline: none;
-      color: var(--text-body);
+      font-size: 13px;
+      box-shadow: 0 10px 24px rgba(7,22,45,.045);
+      transition: .2s ease;
     }
-
-    .search:focus {
-      border-color: var(--gold);
-      box-shadow: inset 0 0 0 1px var(--gold);
-    }
-
-    .filters {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-
-    .filter-btn,
-    .practice-btn,
-    .print-btn {
-      border: 1px solid var(--border);
-      background: var(--white);
-      padding: 10px 12px;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .04em;
+    .search:focus { border-color: rgba(196,164,90,.8); box-shadow: 0 0 0 3px rgba(196,164,90,.15); }
+    .filters { display: flex; align-items: center; justify-content: flex-end; gap: 7px; flex-wrap: wrap; }
+    .filter-btn, .print-btn, .practice-btn {
+      border: 1px solid var(--line);
+      background: var(--paper);
       color: var(--navy);
+      min-height: 38px;
+      padding: 10px 12px;
       cursor: pointer;
-      transition: .18s ease;
       text-transform: uppercase;
-      font-family: var(--sans);
+      letter-spacing: .08em;
+      font-size: 10px;
+      font-weight: 900;
+      transition: .18s ease;
     }
+    .filter-btn:hover, .print-btn:hover, .practice-btn:hover { transform: translateY(-1px); border-color: var(--gold); box-shadow: var(--soft-shadow); }
+    .filter-btn.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
 
-    .filter-btn:hover,
-    .practice-btn:hover,
-    .print-btn:hover {
-      transform: translateY(-1px);
-      border-color: var(--gold);
-      color: var(--navy-deep);
-      box-shadow: 0 10px 22px rgba(5,13,26,.08);
+    main.shell { padding: 28px 0 0; }
+    .method-panel {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--soft-shadow);
+      padding: clamp(18px, 2.6vw, 28px);
+      margin-bottom: 28px;
     }
-
-    .filter-btn.active {
+    .method-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: end;
+      padding-bottom: 18px;
+      margin-bottom: 18px;
+      border-bottom: 1px solid var(--line);
+    }
+    .method-kicker, .download-kicker {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      font-size: 10px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .method-head h2, .section-title h2, .download-panel h2 {
+      font-family: var(--serif);
+      color: var(--navy);
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: .94;
+      letter-spacing: -.045em;
+      font-weight: 700;
+    }
+    .method-head p, .section-title p, .download-panel p {
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.7;
+      max-width: 600px;
+    }
+    .method-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .method-step {
+      padding: 16px;
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--paper-2), rgba(255,255,255,.62));
+      min-height: 176px;
+    }
+    .method-step span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
       background: var(--navy);
-      color: var(--white);
-      border-color: var(--navy);
+      color: var(--gold-2);
+      font-size: 10px;
+      font-weight: 900;
+      margin-bottom: 14px;
     }
+    .method-step h3 {
+      color: var(--navy);
+      font-size: 14px;
+      letter-spacing: -.01em;
+      margin-bottom: 8px;
+    }
+    .method-step p { color: var(--muted); font-size: 12.5px; line-height: 1.6; }
 
     .section-title {
       display: flex;
       align-items: end;
       justify-content: space-between;
-      gap: 14px;
-      margin: 24px 0 16px;
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--border);
+      gap: 18px;
+      margin: 30px 0 16px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
     }
-
-    .section-title h2 {
-      font-family: var(--serif);
-      font-size: clamp(28px, 3.8vw, 42px);
-      letter-spacing: -.04em;
+    .progress-mini {
+      flex: 0 0 auto;
       color: var(--navy);
-      font-weight: 700;
-      line-height: .98;
-    }
-
-    .section-title p {
-      color: var(--text-muted);
-      max-width: 610px;
-      line-height: 1.7;
-      font-size: 13.5px;
-    }
-
-    .sound-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-      padding-bottom: 44px;
-    }
-
-    .sound-card {
-      background: var(--paper);
-      border: 1px solid var(--border);
-      padding: 14px;
-      box-shadow: 0 16px 38px rgba(5, 13, 26, .055);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .sound-card::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 5px;
-      background: linear-gradient(90deg, var(--gold), var(--navy-mid));
-    }
-
-    .sound-card::after {
-      content: "";
-      position: absolute;
-      top: 5px;
-      right: 0;
-      width: 68px;
-      height: 68px;
-      background: linear-gradient(135deg, transparent 50%, rgba(196,164,90,.12) 50%);
-      pointer-events: none;
-    }
-
-    .card-topline {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .sound-index {
-      font-variant-numeric: tabular-nums;
-      color: var(--gold);
-      font-weight: 900;
-      letter-spacing: .18em;
-      font-size: 12px;
-    }
-
-    .sound-type {
-      padding: 7px 10px;
-      background: var(--off-white);
-      border: 1px solid var(--border);
-      color: var(--navy);
-      font-size: 10px;
-      font-weight: 900;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .hero-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 14px;
-    }
-
-    .symbol-lockup {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      min-width: 0;
-    }
-
-    .svg-orb {
-      width: 74px;
-      height: 74px;
-      flex: 0 0 74px;
-      display: grid;
-      place-items: center;
-      background:
-        linear-gradient(135deg, rgba(246,244,239,.96), rgba(255,255,255,.92));
-      border: 1px solid var(--border);
-      color: var(--navy);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .svg-orb::before {
-      content: "";
-      position: absolute;
-      inset: 8px;
-      border: 1px solid rgba(196,164,90,.34);
-    }
-
-    .svg-orb::after {
-      content: "";
-      position: absolute;
-      width: 42px;
-      height: 42px;
-      right: -1px;
-      bottom: -1px;
-      background: rgba(196,164,90,.16);
-      clip-path: polygon(100% 0, 0 100%, 100% 100%);
-    }
-
-    .svg-orb svg {
-      width: 48px;
-      height: 48px;
-      z-index: 1;
-      stroke: currentColor;
-    }
-
-    .sound-card h2 {
-      font-family: var(--serif);
-      font-size: 30px;
-      letter-spacing: -.035em;
-      color: var(--navy);
-      font-weight: 700;
-      line-height: .98;
-    }
-
-    .ipa {
-      margin-top: 8px;
-      font-size: 21px;
-      line-height: 1.1;
-      color: var(--gold);
-      font-weight: 900;
-      letter-spacing: -.02em;
-    }
-
-    .micro-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.2fr;
-      gap: 12px;
-      margin: 16px 0 12px;
-    }
-
-    .micro-grid > div {
-      border: 1px solid var(--border);
+      border: 1px solid var(--line);
       background: rgba(255,255,255,.58);
-      padding: 12px;
-    }
-
-    .micro-grid p {
-      line-height: 1.5;
-      color: var(--text-body);
-      font-size: 12.5px;
-    }
-
-    .micro-grid .label {
-      color: var(--navy);
+      padding: 10px 12px;
       font-size: 10px;
       font-weight: 900;
-      letter-spacing: .16em;
       text-transform: uppercase;
-      margin-bottom: 9px;
-    }
-
-    .word-bank {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-    }
-
-    .word-bank span {
-      border: 1px solid var(--border);
-      background: var(--white);
-      padding: 7px 8px;
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--text-body);
-      line-height: 1;
-    }
-
-    .sound-card.done {
-      outline: 2px solid rgba(196,164,90,.52);
-      outline-offset: 3px;
-    }
-
-    .sound-card.done .practice-btn {
-      background: var(--gold);
-      color: var(--navy-deep);
-      border-color: var(--gold);
+      letter-spacing: .12em;
     }
 
     .empty-state {
       display: none;
-      padding: 32px;
       text-align: center;
-      border: 1px dashed var(--text-light);
-      color: var(--text-muted);
-      background: rgba(255,255,255,.48);
-      margin-bottom: 12px;
+      padding: 28px;
+      color: var(--muted);
+      background: rgba(255,255,255,.55);
+      border: 1px dashed rgba(11,29,58,.22);
+      margin-bottom: 16px;
     }
+    .sound-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; padding-bottom: 38px; }
+    .sound-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 14px 32px rgba(7,22,45,.06);
+      padding: 16px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .sound-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--navy-3));
+    }
+    .sound-card:hover { transform: translateY(-3px); border-color: rgba(196,164,90,.6); box-shadow: var(--shadow); }
+    .card-topline { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 14px; }
+    .sound-index { color: var(--gold); font-size: 11px; font-weight: 900; letter-spacing: .18em; }
+    .sound-type {
+      border: 1px solid var(--line);
+      background: var(--paper-2);
+      color: var(--navy);
+      padding: 7px 9px;
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .hero-row { display: flex; justify-content: space-between; gap: 14px; align-items: center; }
+    .symbol-lockup { display: flex; align-items: center; gap: 14px; min-width: 0; }
+    .svg-orb {
+      width: 70px;
+      height: 70px;
+      flex: 0 0 70px;
+      display: grid;
+      place-items: center;
+      color: var(--navy);
+      background: linear-gradient(135deg, #fff, var(--paper-2));
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      transition: .22s ease;
+    }
+    .svg-orb::after {
+      content: "";
+      position: absolute;
+      right: -18px;
+      bottom: -18px;
+      width: 48px;
+      height: 48px;
+      background: rgba(196,164,90,.16);
+      transform: rotate(45deg);
+    }
+    .svg-orb svg { width: 47px; height: 47px; position: relative; z-index: 1; }
+    .sound-card h2 {
+      font-family: var(--serif);
+      color: var(--navy);
+      font-size: 32px;
+      line-height: .9;
+      letter-spacing: -.04em;
+      font-weight: 700;
+    }
+    .ipa { margin-top: 8px; color: var(--gold); font-size: 17px; font-weight: 900; line-height: 1.1; }
+    .practice-btn { min-width: 98px; background: var(--navy); color: var(--white); border-color: var(--navy); }
+    .practice-btn:hover { background: var(--gold-2); color: var(--navy); border-color: var(--gold-2); }
+    .micro-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 10px; margin: 15px 0 12px; }
+    .micro-grid > div { background: rgba(246,242,234,.64); border: 1px solid var(--line); padding: 12px; }
+    .label { color: var(--navy); font-size: 9px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; margin-bottom: 8px; }
+    .micro-grid p:not(.label) { font-size: 12.5px; line-height: 1.55; color: var(--body); }
+    .word-bank { display: flex; flex-wrap: wrap; gap: 7px; padding-top: 12px; border-top: 1px solid var(--line); }
+    .word-bank span {
+      display: inline-flex;
+      align-items: center;
+      min-height: 28px;
+      border: 1px solid rgba(11,29,58,.12);
+      background: #fff;
+      padding: 6px 8px;
+      color: var(--ink);
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .sound-card.done { outline: 2px solid rgba(196,164,90,.55); outline-offset: 3px; }
+    .sound-card.done .practice-btn { background: var(--gold-2); color: var(--navy); border-color: var(--gold-2); }
+    .sound-card.done .svg-orb { background: linear-gradient(135deg, rgba(215,192,131,.28), #fff); border-color: rgba(196,164,90,.65); }
 
+    .download-panel {
+      width: min(1120px, calc(100% - 32px));
+      margin: 8px auto 0;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 18px;
+      padding: clamp(20px, 3vw, 30px);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(196,164,90,.18), transparent 26rem),
+        var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: var(--soft-shadow);
+    }
+    .download-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 46px;
+      padding: 13px 18px;
+      background: var(--navy);
+      color: var(--white);
+      border: 1px solid var(--navy);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: .14em;
+      font-size: 10.5px;
+      font-weight: 900;
+      white-space: nowrap;
+      transition: .2s ease;
+    }
+    .download-link:hover { background: var(--gold-2); border-color: var(--gold-2); color: var(--navy); transform: translateY(-1px); box-shadow: var(--soft-shadow); }
+    .download-link svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 
     .site-footer {
       margin-top: 0;
       padding: 34px 18px 32px;
       background:
-        radial-gradient(circle at 50% -40%, rgba(196,164,90,.18), transparent 28rem),
-        linear-gradient(180deg, #07111f 0%, var(--navy-deep) 100%);
+        radial-gradient(circle at 50% -35%, rgba(196,164,90,.18), transparent 28rem),
+        linear-gradient(180deg, #07111F 0%, #050D1A 100%);
       color: rgba(255,255,255,.56);
       text-align: center;
       border-top: 1px solid rgba(196,164,90,.22);
@@ -521,461 +504,154 @@
       position: relative;
       overflow: hidden;
     }
+    .footer-glow { position: absolute; left: 50%; top: -90px; width: 420px; height: 220px; transform: translateX(-50%); background: radial-gradient(circle, rgba(196,164,90,.16), transparent 66%); filter: blur(8px); pointer-events: none; }
+    .footer-inner { width: min(760px, 100%); margin: 0 auto; position: relative; z-index: 1; }
+    .footer-brand { display: inline-flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 22px; }
+    .footer-mark { width: 34px; height: 34px; display: grid; place-items: center; border: 1px solid rgba(196,164,90,.32); color: var(--gold-2); background: rgba(255,255,255,.035); }
+    .footer-mark svg { width: 24px; height: 24px; fill: none; stroke: currentColor; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .site-footer h2 { font-family: var(--serif); color: var(--gold-2); font-size: 18px; font-weight: 600; letter-spacing: .08em; line-height: 1; text-align: left; }
+    .footer-tagline { font-family: var(--serif); font-style: italic; color: rgba(255,255,255,.32); font-size: 12px; margin-top: 7px; text-align: left; }
+    .footer-contact { display: flex; justify-content: center; align-items: center; gap: 24px; flex-wrap: wrap; margin-bottom: 22px; }
+    .footer-contact a { display: inline-flex; align-items: center; gap: 9px; color: rgba(255,255,255,.50); text-decoration: none; font-size: 11px; font-weight: 800; letter-spacing: .09em; transition: .18s ease; }
+    .footer-contact a:hover { color: var(--gold-2); transform: translateY(-1px); }
+    .footer-icon, .portal-icon { width: 16px; height: 16px; display: inline-flex; color: var(--gold); }
+    .footer-icon svg, .portal-icon svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; overflow: visible; }
+    .portal-link { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-width: 178px; min-height: 34px; padding: 9px 15px; border: 1px solid rgba(196,164,90,.32); color: rgba(255,255,255,.62); background: rgba(255,255,255,.025); text-decoration: none; text-transform: uppercase; letter-spacing: .16em; font-size: 10px; font-weight: 900; margin-bottom: 20px; transition: .18s ease; }
+    .portal-link:hover { color: var(--navy); border-color: var(--gold-2); background: var(--gold-2); transform: translateY(-1px); }
+    .footer-copy { color: rgba(255,255,255,.22); font-size: 10px; letter-spacing: .02em; }
 
-    .footer-glow {
-      position: absolute;
-      left: 50%;
-      top: -90px;
-      width: 420px;
-      height: 220px;
-      transform: translateX(-50%);
-      background: radial-gradient(circle, rgba(196,164,90,.16), transparent 66%);
-      filter: blur(8px);
-      animation: cinematicGlow 7s ease-in-out infinite alternate;
-      pointer-events: none;
+    .draw { stroke-dasharray: 64; stroke-dashoffset: 64; animation: svgDraw 4s ease-in-out infinite; }
+    .draw.delay { animation-delay: .45s; }
+    .pulse-dot { fill: currentColor; transform-origin: center; animation: pulseDot 2.2s ease-in-out infinite; }
+    .animated-icon { transition: transform .18s ease, color .18s ease; }
+    a:hover .animated-icon { transform: scale(1.1); }
+    .hero-main, .method-panel, .sound-card, .download-panel { animation: riseIn .65s ease both; }
+    @keyframes svgDraw { 0% { stroke-dashoffset: 64; opacity: .48; } 42%, 76% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: -64; opacity: .48; } }
+    @keyframes pulseDot { 0%, 100% { transform: scale(.72); opacity: .45; } 50% { transform: scale(1.2); opacity: 1; } }
+    @keyframes riseIn { from { opacity: 0; transform: translateY(14px); filter: blur(3px); } to { opacity: 1; transform: translateY(0); filter: blur(0); } }
+
+    @media (max-width: 980px) {
+      .hero-layout, .toolbar, .download-panel { grid-template-columns: 1fr; }
+      .hero-side { grid-template-columns: repeat(3, 1fr); }
+      .method-grid { grid-template-columns: repeat(2, 1fr); }
+      .filters { justify-content: flex-start; }
+      .download-link { width: 100%; }
     }
-
-    .footer-inner {
-      width: min(760px, 100%);
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
+    @media (max-width: 760px) {
+      .topbar { align-items: stretch; flex-direction: column; }
+      .hero-main { min-height: 260px; }
+      .hero-side, .sound-grid, .method-grid, .micro-grid { grid-template-columns: 1fr; }
+      .section-title, .method-head { display: block; }
+      .progress-mini { display: inline-flex; margin-top: 12px; }
+      .hero-row { align-items: flex-start; flex-direction: column; }
+      .practice-btn { width: 100%; }
+      .footer-contact { flex-direction: column; gap: 14px; }
     }
-
-    .footer-brand {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 22px;
+    @media (max-width: 520px) {
+      .shell, .download-panel { width: min(100% - 22px, 1120px); }
+      .brand-pill, .portal-mini { width: 100%; justify-content: center; }
+      .hero { padding-top: 14px; }
+      .hero-main { padding: 18px; }
+      .hero-main::before { inset: 9px; }
+      .filters { display: grid; grid-template-columns: repeat(2, 1fr); }
+      .filter-btn, .print-btn { width: 100%; }
+      .sound-card { padding: 14px; }
+      .svg-orb { width: 66px; height: 66px; flex-basis: 66px; }
+      .sound-card h2 { font-size: 29px; }
     }
-
-    .footer-mark {
-      width: 34px;
-      height: 34px;
-      display: grid;
-      place-items: center;
-      border: 1px solid rgba(196,164,90,.32);
-      color: var(--gold-light);
-      background: rgba(255,255,255,.035);
-    }
-
-    .footer-mark svg {
-      width: 24px;
-      height: 24px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 2.2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .site-footer h2 {
-      font-family: var(--serif);
-      color: var(--gold-light);
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: .08em;
-      line-height: 1;
-      text-align: left;
-    }
-
-    .footer-tagline {
-      font-family: var(--serif);
-      font-style: italic;
-      color: rgba(255,255,255,.32);
-      font-size: 12px;
-      margin-top: 7px;
-      text-align: left;
-    }
-
-    .footer-contact {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 28px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
-
-    .footer-contact a {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      color: rgba(255,255,255,.50);
-      text-decoration: none;
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: .09em;
-      transition: color .18s ease, transform .18s ease;
-    }
-
-    .footer-contact a:hover {
-      color: var(--gold-light);
-      transform: translateY(-1px);
-    }
-
-    .footer-icon,
-    .portal-icon {
-      width: 16px;
-      height: 16px;
-      display: inline-flex;
-      color: var(--gold);
-    }
-
-    .footer-icon svg,
-    .portal-icon svg {
-      width: 16px;
-      height: 16px;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      overflow: visible;
-    }
-
-    .portal-link {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 9px;
-      min-width: 178px;
-      min-height: 32px;
-      padding: 9px 15px;
-      border: 1px solid rgba(196,164,90,.32);
-      color: rgba(255,255,255,.62);
-      background: rgba(255,255,255,.025);
-      text-decoration: none;
-      text-transform: uppercase;
-      letter-spacing: .16em;
-      font-size: 10px;
-      font-weight: 900;
-      margin-bottom: 20px;
-      transition: border-color .18s ease, color .18s ease, transform .18s ease, background .18s ease;
-    }
-
-    .portal-link:hover {
-      color: var(--navy-deep);
-      border-color: var(--gold-light);
-      background: var(--gold-light);
-      transform: translateY(-1px);
-    }
-
-    .portal-link:hover .portal-icon {
-      color: var(--navy-deep);
-      animation: arrowSlide .72s ease-in-out infinite alternate;
-    }
-
-    .footer-copy {
-      color: rgba(255,255,255,.22);
-      font-size: 10px;
-      letter-spacing: .02em;
-    }
-
-    .draw {
-      stroke-dasharray: 60;
-      stroke-dashoffset: 60;
-      animation: svgDraw 2.8s ease-in-out infinite;
-    }
-
-    .draw.delay {
-      animation-delay: .35s;
-    }
-
-    .pulse-dot {
-      fill: currentColor;
-      transform-origin: center;
-      animation: pulseDot 1.8s ease-in-out infinite;
-    }
-
-    .animated-icon {
-      transition: transform .18s ease, color .18s ease;
-    }
-
-    a:hover .animated-icon,
-    .portal-link:hover .animated-icon {
-      transform: scale(1.12);
-      color: var(--gold-light);
-    }
-
-    @keyframes svgDraw {
-      0% { stroke-dashoffset: 60; opacity: .45; }
-      42% { stroke-dashoffset: 0; opacity: 1; }
-      78% { stroke-dashoffset: 0; opacity: 1; }
-      100% { stroke-dashoffset: -60; opacity: .45; }
-    }
-
-    @keyframes pulseDot {
-      0%, 100% { transform: scale(.72); opacity: .45; }
-      50% { transform: scale(1.28); opacity: 1; }
-    }
-
-    @keyframes cinematicGlow {
-      0% { opacity: .45; transform: translateX(-50%) scale(.9); }
-      100% { opacity: .95; transform: translateX(-50%) scale(1.08); }
-    }
-
-    @keyframes arrowSlide {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-4px); }
-    }
-
-
-    .hero-copy,
-    .sound-card,
-    .method-panel,
-    .download-panel {
-      animation: cinematicRise .7s ease both;
-    }
-
-    .sound-card {
-      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
-    }
-
-    .sound-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(196,164,90,.55);
-      box-shadow: 0 22px 48px rgba(5,13,26,.11);
-    }
-
-    .svg-orb svg .draw,
-    .footer-icon svg .draw,
-    .portal-icon svg .draw {
-      stroke-dasharray: 60;
-      stroke-dashoffset: 60;
-      animation: svgDraw 3.2s ease-in-out infinite;
-    }
-
-    .svg-orb {
-      transition: transform .22s ease, border-color .22s ease, background .22s ease;
-    }
-
-    .sound-card:hover .svg-orb {
-      transform: translateY(-2px);
-      border-color: rgba(196,164,90,.55);
-      background: linear-gradient(135deg, rgba(255,255,255,.98), rgba(246,244,239,.94));
-    }
-
-    @keyframes cinematicRise {
-      from {
-        opacity: 0;
-        transform: translateY(14px);
-        filter: blur(4px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-        filter: blur(0);
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      *,
-      *::before,
-      *::after {
-        animation-duration: .001ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .001ms !important;
-        scroll-behavior: auto !important;
-      }
+      *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
     }
-
-    @media (max-width: 900px) {
-      .hero-panel,
-      .sound-grid,
-      .micro-grid,
-      .method-grid,
-      .download-panel {
-        grid-template-columns: 1fr;
-      }
-
-      .download-link {
-        width: 100%;
-      }
-
-      .toolbar {
-        grid-template-columns: 1fr;
-        position: relative;
-      }
-
-      .filters {
-        justify-content: flex-start;
-      }
-
-      .hero-row {
-        align-items: flex-start;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .shell {
-        width: min(100% - 22px, 1180px);
-      }
-
-      header.hero {
-        padding-top: 32px;
-      }
-
-      .hero-copy {
-        padding: 14px;
-        min-height: 210px;
-      }
-
-      .hero-copy::before {
-        inset: 10px;
-      }
-
-      .stat-card strong {
-        font-size: 30px;
-      }
-
-      .sound-card {
-        padding: 14px;
-      }
-
-      .svg-orb {
-        width: 78px;
-        height: 78px;
-        flex-basis: 78px;
-      }
-
-      .svg-orb svg {
-        width: 52px;
-        height: 52px;
-      }
-
-      .sound-card h2 {
-        font-size: 31px;
-      }
-
-      .ipa {
-        font-size: 18px;
-      }
-
-      .hero-row {
-        flex-direction: column;
-      }
-
-      .filter-btn,
-      .print-btn {
-        padding: 10px 11px;
-      }
-
-      .footer-contact {
-        gap: 14px;
-        flex-direction: column;
-      }
-
-      .site-footer {
-        padding: 42px 18px 38px;
-      }
-    }
-
     @media print {
-      body {
-        background: white;
-      }
-
-      body::before,
-      .toolbar,
-      .practice-btn,
-      footer {
-        display: none !important;
-      }
-
-      header.hero {
-        padding: 16px 0;
-      }
-
-      .hero-panel {
-        display: block;
-      }
-
-      .hero-copy {
-        box-shadow: none;
-        color: #111;
-        background: #fff;
-        border: 1px solid #ddd;
-        min-height: auto;
-      }
-
-      .hero-copy .subtitle,
-      .eyebrow {
-        color: #333;
-      }
-
-      .hero-stats {
-        display: none;
-      }
-
-      .sound-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-      }
-
-      .sound-card {
-        break-inside: avoid;
-        box-shadow: none;
-      }
+      body { background: white; }
+      body::before, .control-panel, .practice-btn, .download-panel, footer, .portal-mini { display: none !important; }
+      .hero { background: white; color: #111; padding: 12px 0; border: 0; }
+      .hero-layout, .method-grid, .sound-grid { display: block; }
+      .hero-side { display: none; }
+      .hero-main, .method-panel, .sound-card { box-shadow: none; background: white; color: #111; break-inside: avoid; margin-bottom: 10px; }
+      .hero-subtitle, .reveal-content { color: #333; }
     }
+
   </style>
 </head>
 <body>
   <header class="hero">
     <div class="shell">
-      <span class="brand-pill">MD Talk Laboratório de Pronúncia</span>
-      <div class="hero-panel">
-        <section class="hero-copy">
-          <p class="eyebrow">Alfabeto Fonético Internacional</p>
-          <h1>Vowel Sound Map</h1>
-          <p class="subtitle">O IPA (International Phonetic Alphabet) é um sistema internacional que representa sons, não letras. Ele mostra como uma palavra é pronunciada, mesmo quando a escrita em inglês parece irregular.<button class="reveal-toggle icon-only" type="button" aria-expanded="false" aria-controls="ipaReveal" aria-label="Expandir explicação"><span class="reveal-icon" aria-hidden="true">⌄</span></button><span class="reveal-content" id="ipaReveal" hidden>Neste método, cada som é associado a uma imagem-chave e a uma palavra conhecida.<br><br><strong>Exemplo:</strong><br><strong>CAT</strong> representa o som <strong>/æ/</strong>.<br>Ao ver a imagem do gato, você lembra da palavra <strong>CAT</strong>, reproduz o som <strong>/æ/</strong> e aplica esse mesmo som em outras palavras, como <strong>black</strong>, <strong>have</strong>, <strong>hat</strong> e <strong>catch</strong>.<br><br>A lógica é:<br><br><strong>imagem → palavra-chave → som → novas palavras</strong><br><br>Assim, você não decora apenas símbolos: cria uma associação visual e sonora para reconhecer e reproduzir o mesmo som em diferentes palavras.</span></p>
-        </section>
-        <aside class="hero-stats" aria-label="Visão geral da página">
-          <div class="stat-card"><strong>20</strong><span>sons-chave</span></div>
-          <div class="stat-card"><strong>Imagem + Som</strong><span>associação automática</span></div>
-          <div class="stat-card"><strong>Grade de prática</strong><span>repetir · comparar · refinar</span></div>
-        </aside>
+      <div class="topbar">
+        <span class="brand-pill">MD Talk Pronunciation Lab</span>
+        <a class="portal-mini" href="https://institutomdtalk.github.io/portaldoaluno/">Voltar para o portal</a>
       </div>
 
-      <nav class="toolbar" aria-label="Filtros de pronúncia">
-        <input class="search" id="searchInput" type="search" placeholder="Busque uma palavra-chave ou exemplo: bird, phone, teacher, hospital..." />
-        <div class="filters">
-          <button class="filter-btn active" type="button" data-filter="all">Todos</button>
-          <button class="filter-btn" type="button" data-filter="Short vowels">Curtas</button>
-          <button class="filter-btn" type="button" data-filter="Long vowels">Longas</button>
-          <button class="filter-btn" type="button" data-filter="Central vowels">Centrais</button>
-          <button class="filter-btn" type="button" data-filter="Diphthongs">Ditongos</button>
-          <button class="print-btn" type="button" onclick="window.print()">Imprimir</button>
-        </div>
-      </nav>
+      <div class="hero-layout">
+        <section class="hero-main" aria-label="Introdução ao Vowel Sound Map">
+          <p class="kicker">International Phonetic Alphabet</p>
+          <h1>Vowel Sound Map</h1>
+          <p class="hero-subtitle">
+            O IPA representa sons, não letras. Nesta página, cada som vocálico é conectado a uma imagem-chave para criar memória visual, auditiva e articulatória.
+            <button class="reveal-toggle" type="button" aria-expanded="false" aria-controls="ipaReveal" aria-label="Expandir explicação"><span class="reveal-icon" aria-hidden="true">⌄</span></button>
+            <span class="reveal-content" id="ipaReveal" hidden>
+              A lógica de estudo é simples: <strong>imagem → palavra-chave → som → novas palavras</strong>.<br><br>
+              Exemplo: <strong>CAT</strong> representa o som <strong>/æ/</strong>. Ao ver a imagem do gato, você lembra da palavra <strong>cat</strong>, reproduz o som <strong>/æ/</strong> e transfere esse padrão para palavras como <strong>black</strong>, <strong>have</strong>, <strong>hat</strong> e <strong>catch</strong>.
+            </span>
+          </p>
+        </section>
+
+        <aside class="hero-side" aria-label="Resumo da experiência">
+          <div class="metric-card"><strong>20</strong><span>sons vocálicos</span></div>
+          <div class="metric-card"><strong>Visual</strong><span>imagem + som</span></div>
+          <div class="metric-card"><strong>Practice</strong><span>marcar progresso</span></div>
+        </aside>
+      </div>
     </div>
   </header>
 
-  <main class="shell">
+  <div class="control-panel">
+    <div class="shell toolbar" aria-label="Controles de busca e filtro">
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="m16.2 16.2 4.2 4.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        <input class="search" id="searchInput" type="search" placeholder="Busque por som, palavra ou exemplo: bird, phone, teacher, hospital..." />
+      </div>
+      <div class="filters">
+        <button class="filter-btn active" type="button" data-filter="all">Todos</button>
+        <button class="filter-btn" type="button" data-filter="Short vowels">Curtas</button>
+        <button class="filter-btn" type="button" data-filter="Long vowels">Longas</button>
+        <button class="filter-btn" type="button" data-filter="Central vowels">Centrais</button>
+        <button class="filter-btn" type="button" data-filter="Diphthongs">Ditongos</button>
+        <button class="print-btn" type="button" onclick="window.print()">Imprimir</button>
+      </div>
+    </div>
+  </div>
 
+  <main class="shell">
     <section class="method-panel" aria-label="Como usar esta página">
-      <div class="method-kicker">Como usar esta página</div>
+      <div class="method-head">
+        <div>
+          <p class="method-kicker">Como estudar</p>
+          <h2>Treino guiado por associação</h2>
+        </div>
+        <p>Use cada card como um pequeno laboratório: primeiro reconheça a imagem, depois pronuncie a palavra-chave, isole o som e transfira esse som para o banco de palavras.</p>
+      </div>
+
       <div class="method-grid">
         <div class="method-step">
           <span>01</span>
-          <h3>Observe a imagem</h3>
-          <p>A imagem ativa uma palavra-chave que o aluno provavelmente já sabe pronunciar, como <strong>bird</strong>, <strong>fish</strong>, <strong>tree</strong> ou <strong>phone</strong>.</p>
+          <h3>Veja a imagem</h3>
+          <p>A imagem ativa uma palavra conhecida, como <strong>bird</strong>, <strong>fish</strong>, <strong>tree</strong> ou <strong>phone</strong>.</p>
         </div>
         <div class="method-step">
           <span>02</span>
-          <h3>Pronuncie a palavra-chave</h3>
-          <p>Repita a palavra-chave devagar e observe o som vocálico dentro dela. Não comece pela escrita. Comece pelo som.</p>
+          <h3>Pronuncie devagar</h3>
+          <p>Comece pelo som, não pela escrita. Repita a palavra-chave e perceba a vogal central do card.</p>
         </div>
         <div class="method-step">
           <span>03</span>
-          <h3>Transfira o som</h3>
-          <p>Use essa mesma qualidade vocálica nas outras palavras do card. Por exemplo: <strong>bird → nurse → work → world</strong>.</p>
+          <h3>Transfira o padrão</h3>
+          <p>Leve a mesma qualidade vocálica para outras palavras, como <strong>bird → nurse → work → world</strong>.</p>
         </div>
         <div class="method-step">
           <span>04</span>
-          <h3>Repita em blocos</h3>
-          <p>Pratique o banco de palavras em pequenos grupos. Marque o card como praticado quando o som estiver estável e natural.</p>
+          <h3>Marque progresso</h3>
+          <p>Clique em <strong>Praticar</strong> quando o som estiver mais estável, natural e fácil de reproduzir.</p>
         </div>
       </div>
     </section>
@@ -983,8 +659,9 @@
     <section class="section-title">
       <div>
         <h2>Cards de sons</h2>
-        <p>Cada card associa uma imagem-palavra familiar a um som vocálico. O objetivo é criar transferência automática: ver a imagem, lembrar a palavra, isolar o som e aplicar esse som às demais palavras do mesmo card.</p>
+        <p>Cada card combina símbolo fonético, imagem, posição da boca, dica de prática e banco de palavras para repetição consciente.</p>
       </div>
+      <div class="progress-mini" id="progressCount">0/20 praticados</div>
     </section>
 
     <div class="empty-state" id="emptyState">Nenhum card corresponde à sua busca.</div>
@@ -1738,27 +1415,24 @@
     </section>
   </main>
 
-
-    <section class="download-panel" aria-label="Download do material">
-      <div>
-        <span class="download-kicker">Material de apoio</span>
-        <h2>Baixe o material completo</h2>
-        <p>Use o PDF como guia de estudo, revisão e prática fora da página interativa.</p>
-      </div>
-      <a class="download-link" href="https://drive.google.com/open?id=1hUpyspWKa_DgLxJg0nhB-gKiM8IlKa64&usp=drive_fs" target="_blank" rel="noopener noreferrer">
-        Fazer download do material
-      </a>
-    </section>
+  <section class="download-panel" aria-label="Download do material">
+    <div>
+      <p class="download-kicker">Material complementar</p>
+      <h2>Baixe o material da aula</h2>
+      <p>Acesse a versão de apoio para revisar, imprimir ou praticar fora da página interativa.</p>
+    </div>
+    <a class="download-link" href="https://drive.google.com/open?id=1hUpyspWKa_DgLxJg0nhB-gKiM8IlKa64&usp=drive_fs" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12"></path><path d="M7 10l5 5 5-5"></path><path d="M5 21h14"></path></svg>
+      Download do material
+    </a>
+  </section>
 
   <footer class="site-footer">
     <div class="footer-glow" aria-hidden="true"></div>
     <div class="footer-inner">
       <div class="footer-brand">
         <span class="footer-mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64">
-            <path class="draw" d="M14 42V18l18 18 18-18v24"></path>
-            <path class="draw delay" d="M18 48h28"></path>
-          </svg>
+          <svg viewBox="0 0 64 64"><path class="draw" d="M14 42V18l18 18 18-18v24"></path><path class="draw delay" d="M18 48h28"></path></svg>
         </span>
         <div>
           <h2>Instituto MD Talk</h2>
@@ -1768,44 +1442,21 @@
 
       <div class="footer-contact">
         <a href="https://www.instagram.com/inglesmedico.thaifaria/" target="_blank" rel="noopener noreferrer" aria-label="Instagram do Instituto MD Talk">
-          <span class="footer-icon animated-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <rect class="draw" x="5" y="5" width="14" height="14" rx="4"></rect>
-              <circle class="draw delay" cx="12" cy="12" r="3.2"></circle>
-              <circle class="pulse-dot" cx="16.5" cy="7.5" r="1.2"></circle>
-            </svg>
-          </span>
+          <span class="footer-icon animated-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect class="draw" x="5" y="5" width="14" height="14" rx="4"></rect><circle class="draw delay" cx="12" cy="12" r="3.2"></circle><circle class="pulse-dot" cx="16.5" cy="7.5" r="1.2"></circle></svg></span>
           @inglesmedico.thaifaria
         </a>
-
         <a href="mailto:mdtalk.office@gmail.com" aria-label="Enviar email para Instituto MD Talk">
-          <span class="footer-icon animated-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path class="draw" d="M4 6h16v12H4z"></path>
-              <path class="draw delay" d="m4 7 8 6 8-6"></path>
-            </svg>
-          </span>
+          <span class="footer-icon animated-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="draw" d="M4 6h16v12H4z"></path><path class="draw delay" d="m4 7 8 6 8-6"></path></svg></span>
           mdtalk.office@gmail.com
         </a>
-
         <a href="https://wa.me/5547999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp do Instituto MD Talk">
-          <span class="footer-icon animated-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24">
-              <path class="draw" d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"></path>
-              <path class="draw delay" d="M9 8.5c.5 3 2.5 5 5.5 6"></path>
-            </svg>
-          </span>
+          <span class="footer-icon animated-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="draw" d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"></path><path class="draw delay" d="M9 8.5c.5 3 2.5 5 5.5 6"></path></svg></span>
           WhatsApp
         </a>
       </div>
 
       <a class="portal-link" href="https://institutomdtalk.github.io/portaldoaluno/">
-        <span class="portal-icon animated-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24">
-            <path class="draw" d="M10 6 4 12l6 6"></path>
-            <path class="draw delay" d="M5 12h15"></path>
-          </svg>
-        </span>
+        <span class="portal-icon animated-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="draw" d="M10 6 4 12l6 6"></path><path class="draw delay" d="M5 12h15"></path></svg></span>
         Voltar para o portal
       </a>
 
@@ -1818,10 +1469,16 @@
     const cards = Array.from(document.querySelectorAll('.sound-card'));
     const emptyState = document.getElementById('emptyState');
     const filterButtons = Array.from(document.querySelectorAll('.filter-btn'));
+    const progressCount = document.getElementById('progressCount');
     let currentFilter = 'all';
 
     function normalize(text) {
-      return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      return text.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+    }
+
+    function updateProgress() {
+      const done = cards.filter(card => card.classList.contains('done')).length;
+      progressCount.textContent = `${done}/${cards.length} praticados`;
     }
 
     function applyFilters() {
@@ -1856,7 +1513,8 @@
       button.addEventListener('click', () => {
         const card = button.closest('.sound-card');
         card.classList.toggle('done');
-        button.textContent = card.classList.contains('done') ? 'Praticard' : 'Praticar';
+        button.textContent = card.classList.contains('done') ? 'Praticado' : 'Praticar';
+        updateProgress();
       });
     });
 
@@ -1872,6 +1530,8 @@
       });
     }
 
+    updateProgress();
+    applyFilters();
   </script>
 </body>
 </html>
